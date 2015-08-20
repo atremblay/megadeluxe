@@ -4,7 +4,7 @@
 # @Email:              atremblay@datacratic.com
 # @Date:               2015-08-19 18:22:25
 # @Last Modified by:   alexis
-# @Last Modified time: 2015-08-20 07:59:05
+# @Last Modified time: 2015-08-20 08:31:50
 # @File Name:          motocrawler.py
 
 from scrapy.spiders import CrawlSpider, Rule
@@ -22,13 +22,6 @@ class MotoSpider(CrawlSpider):
     allowed_domains = ["megadeluxe.com"]
     start_urls = ["http://megadeluxe.com/category/motorcycles"]
     rules = (
-        # Rule(
-        #     LxmlLinkExtractor(
-        #         restrict_xpaths=['//a[@class="next"]']
-        #         ),
-        #     callback="printURL",
-        #     follow=True
-        # ),
         Rule(
             LxmlLinkExtractor(
                 allow=["megadeluxe.com/motorcycles/.*"]
@@ -48,6 +41,3 @@ class MotoSpider(CrawlSpider):
             u = u._replace(query=urlencode(query, True))
             return MegadeluxeMotoImage(url=urlunparse(u))
 
-
-    def printURL(self, response):
-        print("GOOOOTTTTT {}".format(response.url))
