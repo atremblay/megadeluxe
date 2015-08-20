@@ -14,6 +14,8 @@ BOT_NAME = 'megadeluxe'
 SPIDER_MODULES = ['megadeluxe.spiders']
 NEWSPIDER_MODULE = 'megadeluxe.spiders'
 
+FEED_FORMAT= 'json'
+FEED_URI= "scrapy.json"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'megadeluxe (+http://www.yourdomain.com)'
